@@ -16,28 +16,30 @@ int main() {
   try {
     final handle = arena.allocate<csh>(sizeOf<csh>());
 
-    if (cs.open(cs_arch.CS_ARCH_X86, cs_mode.CS_MODE_64, handle) != cs_err.OK) {
+    if (cs.open(cs_arch.X86, cs_mode.$64, handle) != cs_err.OK) {
       return -1;
     }
 
     arena.using(handle, (handle) => cs.close(handle));
 
-    final codePtr = arena.allocate<Uint8>(code.lengthInBytes);
+    final codePtr = arena.allocate<Uint8>(code.length);
     for (int i = 0; i < code.length; i++) {
       codePtr[i] = code[i];
     }
 
     final insn = arena.allocate<Pointer<cs_insn>>(sizeOf<Size>());
     final count =
-        cs.disasm(handle.value, codePtr, code.lengthInBytes, 0x1000, 0, insn);
+        cs.disasm(handle.value, codePtr, code.length, 0x1000, 0, insn);
 
     arena.using(insn, (insts) => cs.free(insts.value, count));
 
     if (count > 0) {
-      for (int i = 0; i < count; i++) {
-        print('0x${insn.value[i].address.toRadixString(16)}:\t' +
-            '${insn.value[i].mnemonic.readNullTerminatedString()}\t\t' +
-            '${insn.value[i].op_str.readNullTerminatedString()}');
+      for (int j = 0; j < count; j++) {
+        final i = insn.value[j];
+        final mnemonic = i.mnemonic.readNullTerminatedString();
+        final op = i.op_str.readNullTerminatedString();
+
+        print('0x${i.address.toRadixString(16)}:\t$mnemonic\t\t$op');
       }
     } else {
       print('ERROR: Failed to disassemble given code!');

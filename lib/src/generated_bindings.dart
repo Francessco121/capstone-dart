@@ -682,145 +682,145 @@ class Capstone {
 /// Architecture type
 abstract class cs_arch {
   /// < ARM architecture (including Thumb, Thumb-2)
-  static const int CS_ARCH_ARM = 0;
+  static const int ARM = 0;
 
   /// < ARM-64, also called AArch64
-  static const int CS_ARCH_ARM64 = 1;
+  static const int ARM64 = 1;
 
   /// < Mips architecture
-  static const int CS_ARCH_MIPS = 2;
+  static const int MIPS = 2;
 
   /// < X86 architecture (including x86 & x86-64)
-  static const int CS_ARCH_X86 = 3;
+  static const int X86 = 3;
 
   /// < PowerPC architecture
-  static const int CS_ARCH_PPC = 4;
+  static const int PPC = 4;
 
   /// < Sparc architecture
-  static const int CS_ARCH_SPARC = 5;
+  static const int SPARC = 5;
 
   /// < SystemZ architecture
-  static const int CS_ARCH_SYSZ = 6;
+  static const int SYSZ = 6;
 
   /// < XCore architecture
-  static const int CS_ARCH_XCORE = 7;
+  static const int XCORE = 7;
 
   /// < 68K architecture
-  static const int CS_ARCH_M68K = 8;
+  static const int M68K = 8;
 
   /// < TMS320C64x architecture
-  static const int CS_ARCH_TMS320C64X = 9;
+  static const int TMS320C64X = 9;
 
   /// < 680X architecture
-  static const int CS_ARCH_M680X = 10;
+  static const int M680X = 10;
 
   /// < Ethereum architecture
-  static const int CS_ARCH_EVM = 11;
-  static const int CS_ARCH_MAX = 12;
-  static const int CS_ARCH_ALL = 65535;
+  static const int EVM = 11;
+  static const int MAX = 12;
+  static const int ALL = 65535;
 }
 
 /// Mode type
 abstract class cs_mode {
   /// < little-endian mode (default mode)
-  static const int CS_MODE_LITTLE_ENDIAN = 0;
+  static const int LITTLE_ENDIAN = 0;
 
   /// < 32-bit ARM
-  static const int CS_MODE_ARM = 0;
+  static const int ARM = 0;
 
   /// < 16-bit mode (X86)
-  static const int CS_MODE_16 = 2;
+  static const int $16 = 2;
 
   /// < 32-bit mode (X86)
-  static const int CS_MODE_32 = 4;
+  static const int $32 = 4;
 
   /// < 64-bit mode (X86, PPC)
-  static const int CS_MODE_64 = 8;
+  static const int $64 = 8;
 
   /// < ARM's Thumb mode, including Thumb-2
-  static const int CS_MODE_THUMB = 16;
+  static const int THUMB = 16;
 
   /// < ARM's Cortex-M series
-  static const int CS_MODE_MCLASS = 32;
+  static const int MCLASS = 32;
 
   /// < ARMv8 A32 encodings for ARM
-  static const int CS_MODE_V8 = 64;
+  static const int V8 = 64;
 
   /// < MicroMips mode (MIPS)
-  static const int CS_MODE_MICRO = 16;
+  static const int MICRO = 16;
 
   /// < Mips III ISA
-  static const int CS_MODE_MIPS3 = 32;
+  static const int MIPS3 = 32;
 
   /// < Mips32r6 ISA
-  static const int CS_MODE_MIPS32R6 = 64;
+  static const int MIPS32R6 = 64;
 
   /// < Mips II ISA
-  static const int CS_MODE_MIPS2 = 128;
+  static const int MIPS2 = 128;
 
   /// < SparcV9 mode (Sparc)
-  static const int CS_MODE_V9 = 16;
+  static const int V9 = 16;
 
   /// < Quad Processing eXtensions mode (PPC)
-  static const int CS_MODE_QPX = 16;
+  static const int QPX = 16;
 
   /// < M68K 68000 mode
-  static const int CS_MODE_M68K_000 = 2;
+  static const int M68K_000 = 2;
 
   /// < M68K 68010 mode
-  static const int CS_MODE_M68K_010 = 4;
+  static const int M68K_010 = 4;
 
   /// < M68K 68020 mode
-  static const int CS_MODE_M68K_020 = 8;
+  static const int M68K_020 = 8;
 
   /// < M68K 68030 mode
-  static const int CS_MODE_M68K_030 = 16;
+  static const int M68K_030 = 16;
 
   /// < M68K 68040 mode
-  static const int CS_MODE_M68K_040 = 32;
+  static const int M68K_040 = 32;
 
   /// < M68K 68060 mode
-  static const int CS_MODE_M68K_060 = 64;
+  static const int M68K_060 = 64;
 
   /// < big-endian mode
-  static const int CS_MODE_BIG_ENDIAN = -2147483648;
+  static const int BIG_ENDIAN = -2147483648;
 
   /// < Mips32 ISA (Mips)
-  static const int CS_MODE_MIPS32 = 4;
+  static const int MIPS32 = 4;
 
   /// < Mips64 ISA (Mips)
-  static const int CS_MODE_MIPS64 = 8;
+  static const int MIPS64 = 8;
 
   /// < M680X Hitachi 6301,6303 mode
-  static const int CS_MODE_M680X_6301 = 2;
+  static const int M680X_6301 = 2;
 
   /// < M680X Hitachi 6309 mode
-  static const int CS_MODE_M680X_6309 = 4;
+  static const int M680X_6309 = 4;
 
   /// < M680X Motorola 6800,6802 mode
-  static const int CS_MODE_M680X_6800 = 8;
+  static const int M680X_6800 = 8;
 
   /// < M680X Motorola 6801,6803 mode
-  static const int CS_MODE_M680X_6801 = 16;
+  static const int M680X_6801 = 16;
 
   /// < M680X Motorola/Freescale 6805 mode
-  static const int CS_MODE_M680X_6805 = 32;
+  static const int M680X_6805 = 32;
 
   /// < M680X Motorola/Freescale/NXP 68HC08 mode
-  static const int CS_MODE_M680X_6808 = 64;
+  static const int M680X_6808 = 64;
 
   /// < M680X Motorola 6809 mode
-  static const int CS_MODE_M680X_6809 = 128;
+  static const int M680X_6809 = 128;
 
   /// < M680X Motorola/Freescale/NXP 68HC11 mode
-  static const int CS_MODE_M680X_6811 = 256;
+  static const int M680X_6811 = 256;
 
   /// < M680X Motorola/Freescale/NXP CPU12
   /// < used on M68HC12/HCS12
-  static const int CS_MODE_M680X_CPU12 = 512;
+  static const int M680X_CPU12 = 512;
 
   /// < M680X Freescale/NXP HCS08 mode
-  static const int CS_MODE_M680X_HCS08 = 1024;
+  static const int M680X_HCS08 = 1024;
 }
 
 /// User-defined dynamic memory related functions: malloc/calloc/realloc/free/vsnprintf()
@@ -870,113 +870,113 @@ class cs_opt_mnem extends ffi.Struct {
 /// Runtime option for the disassembled engine
 abstract class cs_opt_type {
   /// < No option specified
-  static const int CS_OPT_INVALID = 0;
+  static const int INVALID = 0;
 
   /// < Assembly output syntax
-  static const int CS_OPT_SYNTAX = 1;
+  static const int SYNTAX = 1;
 
   /// < Break down instruction structure into details
-  static const int CS_OPT_DETAIL = 2;
+  static const int DETAIL = 2;
 
   /// < Change engine's mode at run-time
-  static const int CS_OPT_MODE = 3;
+  static const int MODE = 3;
 
   /// < User-defined dynamic memory related functions
-  static const int CS_OPT_MEM = 4;
+  static const int MEM = 4;
 
   /// < Skip data when disassembling. Then engine is in SKIPDATA mode.
-  static const int CS_OPT_SKIPDATA = 5;
+  static const int SKIPDATA = 5;
 
   /// < Setup user-defined function for SKIPDATA option
-  static const int CS_OPT_SKIPDATA_SETUP = 6;
+  static const int SKIPDATA_SETUP = 6;
 
   /// < Customize instruction mnemonic
-  static const int CS_OPT_MNEMONIC = 7;
+  static const int MNEMONIC = 7;
 
   /// < print immediate operands in unsigned form
-  static const int CS_OPT_UNSIGNED = 8;
+  static const int UNSIGNED = 8;
 }
 
 /// Runtime option value (associated with option type above)
 abstract class cs_opt_value {
   /// < Turn OFF an option - default for CS_OPT_DETAIL, CS_OPT_SKIPDATA, CS_OPT_UNSIGNED.
-  static const int CS_OPT_OFF = 0;
+  static const int OFF = 0;
 
   /// < Turn ON an option (CS_OPT_DETAIL, CS_OPT_SKIPDATA).
-  static const int CS_OPT_ON = 3;
+  static const int ON = 3;
 
   /// < Default asm syntax (CS_OPT_SYNTAX).
-  static const int CS_OPT_SYNTAX_DEFAULT = 0;
+  static const int SYNTAX_DEFAULT = 0;
 
   /// < X86 Intel asm syntax - default on X86 (CS_OPT_SYNTAX).
-  static const int CS_OPT_SYNTAX_INTEL = 1;
+  static const int SYNTAX_INTEL = 1;
 
   /// < X86 ATT asm syntax (CS_OPT_SYNTAX).
-  static const int CS_OPT_SYNTAX_ATT = 2;
+  static const int SYNTAX_ATT = 2;
 
   /// < Prints register name with only number (CS_OPT_SYNTAX)
-  static const int CS_OPT_SYNTAX_NOREGNAME = 3;
+  static const int SYNTAX_NOREGNAME = 3;
 
   /// < X86 Intel Masm syntax (CS_OPT_SYNTAX).
-  static const int CS_OPT_SYNTAX_MASM = 4;
+  static const int SYNTAX_MASM = 4;
 }
 
 /// Common instruction operand types - to be consistent across all architectures.
 abstract class cs_op_type {
   /// < uninitialized/invalid operand.
-  static const int CS_OP_INVALID = 0;
+  static const int INVALID = 0;
 
   /// < Register operand.
-  static const int CS_OP_REG = 1;
+  static const int REG = 1;
 
   /// < Immediate operand.
-  static const int CS_OP_IMM = 2;
+  static const int IMM = 2;
 
   /// < Memory operand.
-  static const int CS_OP_MEM = 3;
+  static const int MEM = 3;
 
   /// < Floating-Point operand.
-  static const int CS_OP_FP = 4;
+  static const int FP = 4;
 }
 
 /// Common instruction operand access types - to be consistent across all architectures.
 /// It is possible to combine access types, for example: CS_AC_READ | CS_AC_WRITE
 abstract class cs_ac_type {
   /// < Uninitialized/invalid access type.
-  static const int CS_AC_INVALID = 0;
+  static const int INVALID = 0;
 
   /// < Operand read from memory or register.
-  static const int CS_AC_READ = 1;
+  static const int READ = 1;
 
   /// < Operand write to memory or register.
-  static const int CS_AC_WRITE = 2;
+  static const int WRITE = 2;
 }
 
 /// Common instruction groups - to be consistent across all architectures.
 abstract class cs_group_type {
   /// < uninitialized/invalid group.
-  static const int CS_GRP_INVALID = 0;
+  static const int INVALID = 0;
 
   /// < all jump instructions (conditional+direct+indirect jumps)
-  static const int CS_GRP_JUMP = 1;
+  static const int JUMP = 1;
 
   /// < all call instructions
-  static const int CS_GRP_CALL = 2;
+  static const int CALL = 2;
 
   /// < all return instructions
-  static const int CS_GRP_RET = 3;
+  static const int RET = 3;
 
   /// < all interrupt instructions (int+syscall)
-  static const int CS_GRP_INT = 4;
+  static const int INT = 4;
 
   /// < all interrupt return instructions
-  static const int CS_GRP_IRET = 5;
+  static const int IRET = 5;
 
   /// < all privileged instructions
-  static const int CS_GRP_PRIVILEGE = 6;
+  static const int PRIVILEGE = 6;
 
   /// < all relative branching instructions
-  static const int CS_GRP_BRANCH_RELATIVE = 7;
+  static const int BRANCH_RELATIVE = 7;
 }
 
 /// User-customized setup for SKIPDATA option

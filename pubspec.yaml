@@ -1,5 +1,6 @@
 name: capstone
-description: 'FFI bindings for the Capstone disassembler project.'
+description: 'FFI bindings for the Capstone disassembler framework.'
+version: 0.1.0
 publish_to: none
 
 environment:
@@ -10,7 +11,10 @@ dependencies:
 
 dev_dependencies:
   ffigen: ^7.2.10
+  lints: ^2.0.1
 
+# TEMP: ffigen support for nested anonymous unions doesn't work for
+# capstone.h, use a local patched version for now
 dependency_overrides: 
   ffigen:
     path: ../ffigen
@@ -18,6 +22,7 @@ dependency_overrides:
 ffigen:
   name: Capstone
   description: 'Bindings to Capstone'
+  language: c
   output: 'lib/src/generated_bindings.dart'
   headers:
     entry-points:
@@ -29,5 +34,20 @@ ffigen:
       'cs_(.*)': '$1'
   enums:
     member-rename:
+      'cs_mode':
+        'CS_MODE_([0-9])(.*)': '$$1$2'
+        'CS_MODE_(.*)': '$1'
+      'cs_opt_type':
+        'CS_OPT_(.*)': '$1'
+      'cs_opt_value':
+        'CS_OPT_(.*)': '$1'
+      'cs_op_type':
+        'CS_OP_(.*)': '$1'
+      'cs_ac_type':
+        'CS_AC_(.*)': '$1'
+      'cs_group_type':
+        'CS_GRP_(.*)': '$1'
       'cs_err':
         'CS_ERR_(.*)': '$1'
+      'cs_arch':
+        'CS_ARCH_(.*)': '$1'
