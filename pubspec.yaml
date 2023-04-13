@@ -1,0 +1,33 @@
+name: capstone
+description: 'FFI bindings for the Capstone disassembler project.'
+publish_to: none
+
+environment:
+  sdk: ">=2.19.0 <3.0.0"
+
+dependencies:
+  ffi: ^2.0.1
+
+dev_dependencies:
+  ffigen: ^7.2.10
+
+dependency_overrides: 
+  ffigen:
+    path: ../ffigen
+
+ffigen:
+  name: Capstone
+  description: 'Bindings to Capstone'
+  output: 'lib/src/generated_bindings.dart'
+  headers:
+    entry-points:
+      - thirdparty/capstone/include/capstone/capstone.h
+    include-directives:
+      - thirdparty/capstone/include/**
+  functions:
+    rename:
+      'cs_(.*)': '$1'
+  enums:
+    member-rename:
+      'cs_err':
+        'CS_ERR_(.*)': '$1'

@@ -1,0 +1,5 @@
+.vscode/
+.dart_tool/
+*.dll
+*.so
+pubspec.lock
