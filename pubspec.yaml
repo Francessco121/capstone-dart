@@ -10,14 +10,8 @@ dependencies:
   ffi: ^2.0.1
 
 dev_dependencies:
-  ffigen: ^7.2.10
+  ffigen: ^7.2.11
   lints: ^2.0.1
-
-# TEMP: ffigen support for nested anonymous unions doesn't work for
-# capstone.h, use a local patched version for now
-dependency_overrides: 
-  ffigen:
-    path: ../ffigen
 
 ffigen:
   name: Capstone
