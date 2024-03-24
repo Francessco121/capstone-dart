@@ -1,6 +1,7 @@
 // Based on the official C example: http://www.capstone-engine.org/lang_c.html
 
 import 'dart:ffi';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:capstone/capstone.dart';
@@ -8,7 +9,7 @@ import 'package:ffi/ffi.dart';
 
 final code = Uint8List.fromList('\x55\x48\x8b\x05\xb8\x13\x00\x00'.codeUnits);
 
-int main() {
+void main() {
   final cs = Capstone(DynamicLibrary.open('capstone.dll'));
 
   final arena = Arena();
@@ -17,7 +18,7 @@ int main() {
     final handle = arena.allocate<csh>(sizeOf<csh>());
 
     if (cs.open(cs_arch.X86, cs_mode.$64, handle) != cs_err.OK) {
-      return -1;
+      exit(-1);
     }
 
     arena.using(handle, (handle) => cs.close(handle));
@@ -48,5 +49,5 @@ int main() {
     arena.releaseAll();
   }
 
-  return 0;
+  exit(0);
 }
